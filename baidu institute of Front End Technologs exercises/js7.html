@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>queue</title>
+		<style type="text/css">
+			ul {
+				height: 400px;
+				width: 100
+
+
+							}
+			ul li {
+				float: left;
+				font-size: 12px;
+				width: 20px;
+				background-color: blue;
+				border: 1px solid #000;
+				margin-left: 4px;
+				list-style: none;
+				text-align: center;
+				
+				color: #fff;
+
+			}
+		</style>
+	</head>
+	<body>
+			<input id = "intext" type="text" name="number" />
+			<button id = "leftin">左侧入</button>
+			<button id = "rightin">右侧入</button>
+			<button id = "leftout">左侧出</button>
+			<button id = "rightout">右侧出</button>
+			<button id = "bubblesort">冒泡排序</button>
+		<ul id = "numcontainer"></ul>
+		<script type="text/javascript">   
+			var txt = document.getElementById("intext");
+			//alert(document.getElementById("intext").value); 
+	        var cnum = 0;
+	        var container = document.getElementById("numcontainer");
+	        txt.onblur = function () {
+	        	 
+                if (!(txt.value.match(/^\d{2,2}$/))) {
+           
+            	   alert("you must input number");
+                }
+           };
+          
+            
+	       // alert(text.value);
+		   // if (txt.value)	{
+		    	//alert("we");
+
+		    	//alert("asd");
+                var leftin1 = document.getElementById("leftin");
+		        leftin1.onclick = function (){
+		        	var numLi = container.getElementsByTagName("li").length;
+		    		//console.log(numLi);
+		           if ( numLi < 60 || numLi == 60) {
+		        	//alert("you must input number");
+                        var newnode = document.createElement("li");
+                        newnode.style.height = txt.value + "px";
+                       // newnode.innerHTML = txt.value;
+				        container.insertBefore(newnode,container.firstChild);
+				      //  bubbleSort();
+                        newnode.onclick = function () {
+                    	    container.removeChild(this);
+                    	     };
+                     } else { alert("the number have excced 60");}
+			    };
+			   // console.log(newnode.innerHTML);
+			    document.getElementById("rightin").onclick = function () {
+			        var numLi = container.getElementsByTagName("li").length;
+		    		console.log(numLi);
+		            if ( numLi < 60 || numLi == 60) {	
+				        var newnode = document.createElement("li");
+                        //newnode.innerHTML = txt.value;
+				        newnode.style.height =  txt.value + "px";
+				        container.appendChild(newnode);
+				       // bubbleSort();
+				        newnode.onclick = function () {
+                    	    container.removeChild(this);
+                        };
+                    } else { alert("the number have excced 60");}
+
+			    };	
+		   
+		
+			//if (container.children.length !== 0) {
+				
+				document.getElementById("leftout").onclick = function () {
+                    cnum = container.firstChild.innerHTML;
+                    alert("删除节点的值为：" + cnum);
+                    container.removeChild(container.firstChild);  
+			    };
+			    document.getElementById("rightout").onclick = function () {
+			    	 cnum = container.lastChild.innerHTML;
+			    	 alert("删除节点的值为：" + cnum);
+			    	 container.removeChild(container.lastChild);
+			    };
+			//} 
+			//if (container.children.length === 0) {
+				//alert("队列中没有任何元素，不能进行删除操作！");
+			//}
+			////alert("sfdd");
+			//console.log(container.innerHTML);
+			
+			//console.log(child);
+			/*alert(child);
+            for (var i in child) {
+            	var child = container.getElementsByTagName("li");
+                child[i].index = i;	
+                child[i].onclick = function () {
+
+                 child[i].parentNode.removeChild(child[this.index]);	
+                };*/
+                
+            	   
+           // }
+			
+	   // }
+	  //  window.onload = Queue();
+	    document.getElementById("bubblesort").onclick = function () {
+
+	        var nodeList = container.querySelectorAll("li");
+	        //var timer = null;
+	        //alert(nodeList.length);
+	        var temp = 0;
+	        //timer = setInterval(run,25);
+	        	//alert("asd");
+	        //function run() {
+	        		
+                for (var i = 0;i < (nodeList.length - 1); i++) {
+                   // alert(nodeList[i].style.height);
+                	for (var j = i + 1; j < nodeList.length; j++) {
+                      if (nodeList[i].style.height > nodeList[j].style.height) {
+                      //	alert("asd");
+                      	temp = nodeList[i].style.height;
+                      	nodeList[i].style.height = nodeList[j].style.height;
+                      	nodeList[j].style.height = temp;
+                      }
+                	}
+                }     
+	       // }
+	       // clearInterval(timer);
+	    };
+	    
+	    
+	    
+	</script>
+	</body>
+	
+</html>

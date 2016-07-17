@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>transition</title>
+		<style>
+			div{
+				width: 100px;
+				height: 100px;
+                background: blue;
+                transition-property: width 1s linear 2s;
+                /* Firefox 4 */
+                -moz-transition: width 1s linear 2s;
+                /* Safari and Chrome */
+                -webkit-transition: width 1s linear 2s;
+                /* Opear */
+                -o-transition: width 1s linear 2s;
+			}
+			div:hover{
+				width: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

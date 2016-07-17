@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>demo</title>
+		<style>
+		    body {}
+		    #wrap {
+		    	margin: 0 auto;
+		    	font: arial sans-serif 12px;
+		    	/*使得最外层水平居中*/
+		    	width: -moz-fit-content;
+		    	width: -webkit-fit-content;
+		    	width: fit-content;
+		    }
+			#nav {
+   				width: 790px;
+   				overflow: hidden;
+   				/*display: flex;
+   				justify-content: center;
+   				align-content: center;*/
+   				height: 250px;
+   				float:left;
+   				position: relative;
+   
+        	 }
+        	 #nav ul{
+        	 
+        	 	width: 150px;
+        	   list-style: none;
+        	   display: inline;
+        	   position: absolute;
+        	   padding: 0;
+        	   margin: 0;
+        	   /*flex: 1;*/
+        	 }
+			/*#nav li:nth-child(1) {
+				
+                border-radius: 12px;
+                -webkit-border-radius: 12px;
+                width: 25px;
+                height: 25px;
+
+			}
+			#nav li:nth-child(2) {
+                
+                border-radius: 5px;
+                -webkit-border-radius: 5px;
+                width: 150px;
+                height: 150px;
+
+
+			}*/
+			#nav li {
+                  text-align: center;
+                  margin-top: 10px;
+                  display: block;
+                  width: 150px;
+                  font-size: 12px;
+			}
+			#leftbtn {
+				float: left;
+				margin-top: 120px;
+				height: 40px;
+				width: 20px;
+				margin-right: 10px; 
+			}
+			#rightbtn {
+				float: left;
+				margin-top: 120px;
+				height: 40px;
+				width: 20px;
+				margin-left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id = "wrap">
+		    <button id = "leftbtn"></button>
+			<div id = "nav"></div>
+			<button id = "rightbtn"></button>
+		</div>
+		<!--<div>
+			<button></button>
+		</div> -->
+	</body>
+	<script type="text/javascript">
+	    var text = {
+	    	"2016-05-16": "项目站点启动动员大会",
+	    	"2016-05-17": "提交需求说明文档",
+	    	"2016-05-18": "项项目梳理",
+	    	"2016-05-19": "项学习只是",
+	    	"2016-05-20": "加油",
+	    	"2016-05-21": "学习就是一种收获",
+	    	"2016-05-22": "所以不害怕",
+	    	"2016-05-23": "慢慢积累",
+	    	"2016-05-24": "积少成多",
+	    	"2016-05-25": "总会达到要求",
+	    	"2016-05-26": "完成完成",
+	    	"2016-05-27": "项目站点是吧是吧"
+	    }; 
+        //兼容
+	    function addEvent(element, event, listener) {
+            if (element.addEventListener) {//标准
+            element.addEventListener(event, listener, false);
+            }
+            else if (element.attachEvent) {//低版本ie
+                element.attachEvent("on" + event, listener);
+            } else {//都不行的情况
+                element["on" + event] = listener;
+            }
+        }
+       // alert("wer");
+		var nav = document.getElementById("nav");
+		function createElement() {
+			var item = "";
+		    var color = "";
+		    var pos = 0;
+		    for(var i in text) {
+			    color = "#"+("00000"+((Math.random()*16777215+0.5)>>0).toString(16)).slice(-6);
+                item += "<ul style = 'left:" + (pos*160) + "px;" + "'><li>" + i + "</li><li style = 'background-color:" + color + "; height: 25px; width: 25px; -webkit-border-radius: 50%; padding: 2px; margin-left: 55px; border: 2px solid #000;'></li><li style ='background-color:" + color +"; height: 150px; padding-top: 10px; font-size: 15px; border-radius: 5px;'>" + text[i] + "</li></ul>";
+                pos++;
+            //
+           // item += "<ul><li>" + i + "</li><li style = 'background-color:" + color + "; border = 2px solid " + color + ";'></li><li style ='background-color:" + color +";'>" + text[i] + "</li></ul>";
+		    }
+		    nav.innerHTML = item;
+		}
+		//alert("wer");
+		
+        //点击事件的绑定
+		var allul = nav.getElementsByTagName("ul");
+		var rightbtn = document.getElementById("rightbtn");
+		var leftbtn = document.getElementById("leftbtn");
+		//alert(allul[allul.length-1]);
+		function leftBtn() {
+			if (allul[allul.length - 1].style.left != "640px") {
+               
+                for (var i in allul) {
+                	allul[i].style.left = (parseInt(allul[i].style.left) - 160) + "px"; 
+                }
+			}
+		}
+		function rightBtn() {
+			if (allul[0].style.left != "0px") {
+                //var allul = nav.getElementsByTagName("ul");
+                for (var i in allul) {
+                	allul[i].style.left = (parseInt(allul[i].style.left) + 160) + "px"; 
+                }
+			}
+		}
+
+
+		addEvent(rightbtn,"click", rightBtn);
+		addEvent(leftbtn,"click", leftBtn);
+		createElement();
+
+	</script>
+</html>

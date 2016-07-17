@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+  </head>
+<body>
+
+  <h3>污染城市列表</h3>
+  <ul id="aqi-list">
+<!--   
+    <li>第一名：福州（样例），10</li>
+  	<li>第二名：福州（样例），10</li> -->
+  </ul>
+
+<script type="text/javascript">
+
+var aqiData = [
+  ["北京", 90],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 50],
+  ["成都", 90],
+  ["西安", 100]
+];
+
+(function () {
+ //alert("asdf");
+  /*
+  在注释下方编写代码
+  遍历读取aqiData中各个城市的数据
+  将空气质量指数大于60的城市显示到aqi-list的列表中
+  */
+ var j = 0;
+ var count = 1;
+  var dataSort = new Array();
+  for (var i = 0; i < aqiData.length; i++){
+    if(aqiData[i][1] > 60){
+      
+     dataSort[j]= aqiData[i];
+     j++;
+    }
+  }
+  console.log(j);
+  console.log(dataSort);
+  //按照分数排序
+  dataSort.sort(function(a,b){
+    return b[1] - a[1];
+  });
+
+  if(!document.createElement) return false;
+
+  if(!document.getElementById) return false;
+  var aqilist = document.getElementById("aqi-list");
+
+  for(var j in dataSort ){
+     var aqllistli = document.createElement("li"); 
+     aqllistli.innerText = '第' + (parseInt(j)+1) + '名:' + dataSort[j][0] + '，' + dataSort[j][1];
+     //如果直接使用（j+1）,会输出01 11 21，也就是字符串之间的拼接，需要将进行强制
+     //转换，或者用count来实现也可以
+     //
+     count++;
+     aqilist.appendChild(aqllistli);
+  }
+
+})();
+/* 此处用到两个循环，可以先对列表进行排序然后再用循环，这可以减少变量的数量和循环
+的次数 
+
+var oUl=document.getElementById('aqi-list');
+  var count=1;
+  aqiData.sort(function(a,b){
+    return b[1]-a[1];
+  });
+  for(var i=0;i<aqiData.length;i++){
+    if( aqiData[i][1]>60){
+      var oLi=document.createElement('li');
+      oLi.innerHTML="第"+count+"名:"+aqiData[i][0]+","+aqiData[i][1];
+      count++;
+      oUl.appendChild(oLi);
+    }
+   
+  }
+
+
+
+
+*/
+
+</script>
+</body>
+</html>
+
+<!--js的弱检查特性，因此在js数组中可以同时存储不同类型的变量，比如把数字、字符串
+等内容放在同一个数组中 
+http://blog.csdn.net/wangyuchun_799/article/details/38460515
+ -->

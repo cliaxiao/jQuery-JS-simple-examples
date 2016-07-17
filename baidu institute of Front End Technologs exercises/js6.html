@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>queue</title>
+		<style type="text/css">
+			ul {
+				height: 400px;
+				width: 100
+
+
+							}
+			ul li {
+				float: left;
+				height: 35px;
+				width: 50px;
+				background-color: blue;
+				border: 1px solid #000;
+				margin-left: 10px;
+				list-style: none;
+				text-align: center;
+				padding-top: 15px;
+				color: #fff;
+
+			}
+		</style>
+	</head>
+	<body>
+			<input id = "intext" type="text" name="number" />
+			<button id = "leftin">左侧入</button>
+			<button id = "rightin">右侧入</button>
+			<button id = "leftout">左侧出</button>
+			<button id = "rightout">右侧出</button>
+		<ul id = "numcontainer"></ul>
+		<script type="text/javascript">   
+			var txt = document.getElementById("intext");
+			//alert(document.getElementById("intext").value); 
+	        var cnum = 0;
+	        var container = document.getElementById("numcontainer");
+	        txt.onblur = function () {
+	        	 
+                if (!(txt.value.match(/^\d+$/))) {
+           
+            	   alert("you must input number");
+                }
+           };
+          
+            
+	       // alert(text.value);
+		   // if (txt.value)	{
+		    	//alert("we");
+                var leftin1 = document.getElementById("leftin");
+		        leftin1.onclick = function (){
+		        	//alert("you must input number");
+                    var newnode = document.createElement("li");
+                    newnode.innerHTML = txt.value;
+				    container.insertBefore(newnode,container.firstChild);
+                    newnode.onclick = function () {
+                    	container.removeChild(this);
+                    };
+
+
+			    };
+			   // console.log(newnode.innerHTML);
+			    document.getElementById("rightin").onclick = function () {
+				    var newnode = document.createElement("li");
+
+				    newnode.innerHTML = txt.value;
+				    container.appendChild(newnode);
+				    newnode.onclick = function () {
+                    	container.removeChild(this);
+                    };
+
+			    };	
+		    //}
+		
+			//if (container.children.length !== 0) {
+				
+				document.getElementById("leftout").onclick = function () {
+                    cnum = container.firstChild.innerHTML;
+                    alert("删除节点的值为：" + cnum);
+                    container.removeChild(container.firstChild);  
+			    };
+			    document.getElementById("rightout").onclick = function () {
+			    	 cnum = container.lastChild.innerHTML;
+			    	 alert("删除节点的值为：" + cnum);
+			    	 container.removeChild(container.lastChild);
+			    };
+			//} 
+			//if (container.children.length === 0) {
+				//alert("队列中没有任何元素，不能进行删除操作！");
+			//}
+			////alert("sfdd");
+			//console.log(container.innerHTML);
+			
+			//console.log(child);
+			/*alert(child);
+            for (var i in child) {
+            	var child = container.getElementsByTagName("li");
+                child[i].index = i;	
+                child[i].onclick = function () {
+
+                 child[i].parentNode.removeChild(child[this.index]);	
+                };*/
+                
+            	   
+           // }
+			
+	   // }
+	  //  window.onload = Queue();
+	</script>
+	</body>
+	
+</html>

@@ -1,0 +1,174 @@
+
+html,body,div,span,applet,object,iframe,
+h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,
+acronym,address,big,cite,code,del,dfn,em,img,ins,
+kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,
+i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,
+legend,table,caption,tbody,tfoot,thead,tr,th,
+td,article,aside,canvas,details,embed,figure,
+figcaption,footer,header,hgroup,menu,nav,output,ruby,
+section,summary,time,mark,audio,video {
+	margin:0;
+	padding:0;
+	border:0;
+	font-size:100%;
+	font:inherit;
+	vertical-align:baseline;
+	}
+article,aside,details,figcaption,
+figure,footer,header,hgroup,menu,
+nav,section { 
+	display:block;
+	}
+body {
+	line-height:1;
+	background-color: #fff;
+	}
+ol,ul {
+	list-style:none;
+	}
+blockquote,q {
+	quotes:none;
+	}
+blockquote:before,blockquote:after,q:before,q:after {
+	content:'';
+	content:none;
+	}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+
+
+
+#warp { 
+	margin: 0 auto;
+	height:400px;
+	/*使得最外层水平居中*/
+	width: -moz-fit-content;
+	width: -webkit-fit-content;
+	width: fit-content;
+		}
+	/*下面的样式实现三角，如何实现一个右三角，参考http://zhidao.baidu.com/link?url=_uds7Uv1xmZ1wCbsz3lRoRelL0vrNVOqsvQnUurY4e3qPfeAIWtnswC4YeJWSOfco8msk35QDP53Ejp9itSBXxQNMM9gvrOtC074_I37SoO
+       http://www.myexception.cn/HTML-CSS/973460.html
+       不过这种方式增加了两个span标签
+	*/
+.btn_l {
+	width:22px;
+	background-color: red;
+    margin-top: 70px;
+    margin-right: 0!important;
+	*line-height: 0;/*IE6: _line-height:18px; IE6、IE7: *line-height:18px;Firefox、Chrome: line-height:18px;*/
+	line-height: 0;
+	float: left;
+	position: relative;
+}
+.btn_l .oneicon {
+	display: block;
+	border-width: 16px 16px 16px 0;
+	border-color: transparent rgba(248, 195, 205, 1) transparent transparent;
+	border-style: solid;
+    position: absolute;
+    top:0;
+    left: 0;
+	width: 0;
+	height: 0; 
+}
+.btn_l .twoicon {
+	display: block;
+	border-width: 16px 16px 16px 0;
+	border-color: transparent #fff transparent transparent;
+	border-style: solid;
+	position: absolute;
+    top:0;
+    left: 6px;
+	width: 0;
+	height: 0; 
+}
+#content {
+	float: left;
+	padding: 0;
+    width: 796px;
+	height: 210px;
+	overflow: hidden;/*不知道为什么，放在imgShow中就不显示完整的图片，只显示第一个版面*/
+
+}
+#imgShow {
+	clear: both;
+	position: relative;
+	width: 796px;
+	height: 171px;
+   }
+#imgShow ul {
+	white-space:nowrap;/*心塞啊，就算设置li为inline-block也是会换行，只有强制ul不换行才能达到效果*/
+	position: absolute;
+	list-style: none;
+	font-size: 0;
+	z-index: 21;
+	padding: 0px;
+	margin:0;
+}
+#imgShow li {
+	width: 195px;
+	margin: 0 2px;
+	height: 171px;
+	display: inline-block;
+}
+#imgShow li a {}
+#imgShow li a img {
+	width:193px;
+	height: 171px;
+}
+.btn_r {
+    width: 16px;
+    float: left;
+    margin-top: 70px;
+    margin-left: 4px;
+	*line-height: 0;/*IE6: _line-height:18px; IE6、IE7: *line-height:18px;Firefox、Chrome: line-height:18px;*/
+	line-height: 0;
+	position: relative;
+}
+.btn_r .oneicon1 {
+	display: block;
+	border-width: 16px 0 16px 16px;
+	border-color: transparent transparent transparent rgba(248, 195, 205, 1);
+	border-style: solid;
+	width: 0;
+	height: 0; 
+	position: absolute;
+    top:0;
+    left: 0;
+}
+.btn_r .twoicon1 {
+	display: block;
+	border-width: 16px 0 16px 16px;
+	border-color: transparent transparent transparent #fff;
+	border-style: solid;
+	width: 0;
+	height: 0;
+	position: absolute;
+    top:0;
+    left: -6px; 
+}
+#whichpage {
+	height: 16px;
+	width: 780px;
+	margin-top: 3px;
+	text-align: center;/*行内元素margin对其不其作用，
+	所以需要使用text-algn来达到居中的效果*/
+     background-color: 	rgba(255,222,173,0.2);
+}
+#whichpage .indication {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	margin: 0 2px;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	background-color: rgba(248, 195, 205, 1); 
+}
+#whichpage .checked {
+	background-color: rgba(232, 122,144, 1);
+}
+/*other*/

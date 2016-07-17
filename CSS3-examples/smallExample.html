@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CSS Small Example</title>
+		<style>
+		/* table style */
+			table {
+				font-family: sans-serif, Arial;
+				font-size: 1em;
+				text-align: left;
+				padding-bottom: 22px;
+			}
+			th {
+                border: 1px solid #fff;
+                font-style: normal;
+                background-color: #000;
+                color: #fff;
+			}
+			td {
+				border: 1px solid #fff;
+
+			}
+			tr:nth-last-child(1n+8) {
+				color: red;
+			}
+			tr:nth-child(2n+3) {
+                background-color: #9cc;
+			}
+			tr:nth-child(2n+2) {
+                background-color: #fff;
+			}
+
+			/* input */
+			input:focus{
+				width: 100px;
+				left: 75px;
+				outline: none;
+			}
+			input {
+				position: relative;
+				left: 100px;
+                   width: 50px;
+                   transform: scaleX(2);
+                   -moz-transform: scaleX(2);
+                   -webkit-transform: scaleX(2);
+                   -o-transform: scaleX(2);
+                   line-height: 12px;
+                   margin-bottom: 23px;
+			}
+			/* 利用scale，可以做到两边扩张，扩张的内容都是可用的。*/
+			/* input2 */
+			/*
+			@-webkit-keyframes resize {
+				0%   { padding: 0; }
+				50%  { padding: 0 25px; }
+                100% { padding: 0 50px; }
+			}
+			input {
+				width: 50px;
+				margin-bottom: 22px;
+			}
+			*/
+			/*发现一个有意思的事，如果用padding来加长input，pading部分只会填充框，其内容不可用，光标会在padding-left之后开始。
+			input:focus{
+				-webkit-animation: resize 1.5s linear;
+				animation: resize 1.5s linear;
+				animation-fill-mode: both;
+				outline: none;
+			}
+
+			/* banner */
+			.banner {
+				width: 250px;
+				height: 150px;
+				position: relative;
+				overflow: hidden;
+				background: red;
+			}
+			.banner ul {
+				margin: 0;
+				padding: 0;
+			}
+			.banner li {
+				display: block;
+			}
+			.sliders {
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				right: 0;
+				animation: .5s slider-init linear;
+			}
+			.sliders li {
+				position: absolute;
+				left: -100%;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				animation: .5s slider-out linear;
+			}
+			#slider-1 {
+				background-color: red;
+			}
+			#slider-2 {
+				background-color: green;
+			}
+			#slider-3 {
+				background-color: blue;
+			}
+			.sliders li:target {
+				left: 0%;
+				animation: .5s slider-in linear;
+			}
+			@keyframes slider-init {
+				0%   { left: -100%; }
+				100% { left: 0%; }
+			}
+			@-webkit-keyframes slider-init {
+				0%   { left: -100%; }
+				100% { left: 0%; }
+			}
+			@keyframes slider-in {
+				0%   { left: 100%; }
+				100% { left: 0%; }
+			}
+			@-webkit-keyframes slider-in {
+				0%   { left: 100%; }
+				100% { left: 0%; }
+			}
+			@keyframes slider-out {
+				0%   { left: 0%; }
+				100% { left: -100%; }
+			}
+			@-webkit-keyframes slider-out {
+				0%   { left: 0%; }
+				100% { left: -100%; }
+			}
+			.btn {
+				z-index: 5;
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				display: flex;
+			}
+			.btn a{
+				display: block;
+				margin: 0 1px;
+				background-color: rgba(255, 255, 255, 0.5);/* 后面为transparent */
+				color: white;
+				text-decoration: none;
+				padding: 10px 14px;
+			}
+		</style>
+	</head>
+	<body> 
+		<!-- one example -->
+		<table>
+			<caption>One Example</caption>
+			<thead>
+			    <tr>
+				    <th>排名</th>
+					<th>网站</th>
+					<th>热度</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1.</td>
+					<td>百度前端</td>
+					<td>1300</td>
+				</tr>
+				<tr>
+					<td>2.</td>
+					<td>百度前端</td>
+					<td>1300</td>
+				</tr>
+				<tr>
+					<td>3.</td>
+					<td>百度前端</td>
+					<td>1300</td>
+				</tr>
+				<tr>
+					<td>4.</td>
+					<td>百度前端</td>
+					<td>1300</td>
+				</tr>
+				<tr>
+					<td>5.</td>
+					<td>百度前端</td>
+					<td>1300</td>
+				</tr>
+				<tr>
+					<td>6.</td>
+					<td>百度前端</td>
+					<td>1300</td>
+				</tr>
+							<tr>
+					<td>7.</td>
+					<td>百度前端</td>
+					<td>1300</td>
+				</tr>			
+				<tr>
+					<td>8.</td>
+					<td>百度前端</td>
+					<td>1300</td>
+				</tr>			
+				<tr>
+					<td>9.</td>
+					<td>百度前端</td>
+					<td>1300</td>
+				</tr>			
+				<tr>
+					<td>10.</td>
+					<td>百度前端</td>
+					<td>1300</td>
+				</tr>
+			</tbody>
+		</table>
+		<!-- two example -->
+		<form>
+			<input type = "text" name = "firstname" />
+		</form>
+
+		<!-- three example -->
+		<div class = "banner">
+			<ul class = "sliders">
+				<li id = "slider-1"></li>
+				<li id = "slider-2"></li>
+				<li id = "slider-3"></li>
+			</ul>
+			<div class = "btn">
+				<a href = "#slider-1">1</a>
+				<a href = "#slider-2">2</a>
+				<a href = "#slider-3">3</a>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+body{
+	font-family: "Helvetica","Arial",serif;
+	color: #333;
+	background-color: #CCC;
+	margin: 0 auto;
+}
+h1{
+	color: #333;
+	background-color: transparent;
+	text-align: center;
+}
+a{
+	color: #c60;
+	background-color: transparent;
+	font-weight: bold;
+	text-decoration: none;
+}
+ul{
+	padding: 0;
+}
+li{
+	float: left;
+	padding: 4px;
+	list-style: none;
+}
+#tooltip {
+    position: absolute;/*书上没有css文件，看了很久的top left，才发现没有绝对定位*/
+}
+#imagegallery{
+	list-style: none;
+}
+#imagegallery li{
+	display: inline;
+}
+#imagegallery li a img{
+	border: 0;
+}
+#placeholder {
+	display: block;
+	margin: 4px auto;
+}
